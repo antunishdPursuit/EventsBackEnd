@@ -1,3 +1,4 @@
+// Used to make sure username has a value
 const checkName = (req, res, next) => {
   if (req.body.username) {
     next()
@@ -6,9 +7,10 @@ const checkName = (req, res, next) => {
   }
 };
   
+// Used to make sure looking_for_group is a boolean value
 const checkBoolean = (req, res, next) => {
   const { looking_for_group } = req.body;
-  
+
   if (
     looking_for_group == "true" ||
     looking_for_group == "false" ||
@@ -22,6 +24,7 @@ const checkBoolean = (req, res, next) => {
   }
 };
 
+// Used to make sure that profile_picture is in either .jpg, .jpeg, or .png file format
 const validatePhoto = (req, res, next) => {
   const test = req.body.profile_picture.split(".")
   const test1 = test[test.length - 1]

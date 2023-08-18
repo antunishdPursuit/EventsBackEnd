@@ -3,20 +3,22 @@ const pgp = require("pg-promise")();
 const db = require("../db/dbConfig.js");
 const apiUrl = process.env.API_KEY;
 
+// Used to insert Data into the users database by gathering info from an API
 axios.get(apiUrl)
 .then(response => {
   const apiData = response.data.results;
-  
+
   // Prepare and execute INSERT queries
   const insertQueries = apiData.map(user => {
+    const { picture, name, location, login, dob, registered } = user
     return db.none(`INSERT INTO users (profile_picture, username, bio, looking_for_group, date_created)
       VALUES ($1, $2, $3, $4, $5);`,
       [
-        user.picture.thumbnail,
-        `My name is ${user.name.first} ${user.name.last} and Im from ${user.location.country}`,
-        user.login.username,
-        user.dob.age > 30,
-        user.registered.date
+        picture.thumbnail,
+        `My name is ${name.first} ${name.last} and Im from ${location.country}`,
+        login.username,
+        dob.age > 30,
+        registered.date
       ]
     );
   });
