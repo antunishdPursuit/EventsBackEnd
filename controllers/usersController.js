@@ -1,6 +1,7 @@
 const express = require("express");
 const users = express.Router();
 const { getAllUsers, getUser, createUser, deleteUser, updateUser } = require("../queries/users");
+const { checkBoolean, checkName, validatePhoto } = require("../validations/checkUsers.js");
 
 //Events controller to be used at a later point
 // const eventsController = require("./eventsController.js");
@@ -13,7 +14,7 @@ users.get("/", async (req, res) => {
     if (allUsers[0]) {
       res.status(200).json(allUsers);
     } else {
-      res.status(500).json({ error: "server error" });
+      res.status(500).json({ error: "Show All Users error" });
     }
   });
 
@@ -25,12 +26,12 @@ users.get("/:id", async (req, res) => {
     if (user) {
       res.json(user);
     } else {
-      res.status(404).json({ error: "not found" });
+      res.status(404).json({ error: "Show one User failed" });
     }
   });
   
   // CREATE
-users.post("/", checkBoolean, checkName, validateURL, async (req, res) => {
+users.post("/", checkBoolean, checkName, validatePhoto, async (req, res) => {
     try {
       const user = await createUser(req.body);
       res.json(user);
@@ -51,7 +52,7 @@ users.post("/", checkBoolean, checkName, validateURL, async (req, res) => {
   });
 
   // UPDATE
-  users.put("/:id", checkName, checkBoolean, validateURL, async (req, res) => {
+  users.put("/:id", checkName, checkBoolean, validatePhoto, async (req, res) => {
   const { id } = req.params;
   const updatedUser = await updateUser(id, req.body);
   res.status(200).json(updatedUser);

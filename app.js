@@ -11,7 +11,7 @@ app.use(express.json());
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.send("Welcome to users App");
+  res.send("Welcome to the Events App");
 });
 
 // users ROUTES
