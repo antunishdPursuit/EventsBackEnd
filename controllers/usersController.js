@@ -4,8 +4,8 @@ const { getAllUsers, getUser, createUser, deleteUser, updateUser } = require("..
 const { checkBoolean, checkName, validatePhoto } = require("../validations/checkUsers.js");
 
 //Events controller to be used at a later point
-// const eventsController = require("./eventsController.js");
-// users.use("/:userId/events", eventsController);
+const eventsController = require("./eventsController.js");
+users.use("/:user_Id/events", eventsController);
 
 
 // INDEX
