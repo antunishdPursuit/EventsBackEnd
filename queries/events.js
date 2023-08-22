@@ -4,7 +4,7 @@ const db = require("../db/dbConfig.js");
 const getAllEvents = async (user_id) => {
     try {
         const allEvents = await db.any(
-        "SELECT * FROM events WHERE user_id=$1",
+        "SELECT * FROM events WHERE user_id=$1 ORDER BY id desc",
         user_id
         );
         return allEvents;

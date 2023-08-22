@@ -14,9 +14,9 @@ axios.get(apiUrl)
     return db.none(`INSERT INTO users (profile_picture, username, bio, looking_for_group, date_created)
       VALUES ($1, $2, $3, $4, $5);`,
       [
-        picture.thumbnail,
-        `My name is ${name.first} ${name.last} and Im from ${location.country}`,
+        picture.large,
         login.username,
+        `My name is ${name.first} ${name.last} and Im from ${location.country}`,
         dob.age > 30,
         registered.date
       ]
