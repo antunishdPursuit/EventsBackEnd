@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS users_dev;
-CREATE DATABASE users_dev;
+DROP DATABASE IF EXISTS "events_attended_dev";
+CREATE DATABASE "events_attended_dev";
+\connect "events_attended_dev";
 
-\c users_dev;
 
 DROP TABLE IF EXISTS users;
 

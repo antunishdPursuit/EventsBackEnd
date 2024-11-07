@@ -1,12 +1,12 @@
-\c users_dev;
+\c events_attended_dev
 
--- INSERT INTO users (profile_picture, username, bio, looking_for_group, date_created)
--- VALUES
--- ('https://randomuser.me/api/portraits/women/38.jpg', 'organicgorilla182', 'My name is Tina Tripković and Im from Serbia', true, '2005-11-03'),
--- ('https://randomuser.me/api/portraits/women/3.jpg', 'rockstar88', 'Guitarist and singer, looking for a band', true, '2003-12-30'),
--- ('https://randomuser.me/api/portraits/men/48.jpg', 'danceMachine', 'My name is Luciano Durand and Im from Switzerland', false, '2019-01-18'),
--- ('https://randomuser.me/api/portraits/men/1.jpg', 'orangeswan986', 'Attending every concert possible!', true, '2003-12-30'),
--- ('https://randomuser.me/api/portraits/women/8.jpg', 'druerGi', 'Drummer searching for jam buddies', true, '2003-12-30');
+INSERT INTO users (profile_picture, username, bio, looking_for_group, date_created)
+VALUES
+('https://randomuser.me/api/portraits/women/38.jpg', 'organicgorilla182', 'My name is Tina Tripković and Im from Serbia', true, '2005-11-03'),
+('https://randomuser.me/api/portraits/women/3.jpg', 'rockstar88', 'Guitarist and singer, looking for a band', true, '2003-12-30'),
+('https://randomuser.me/api/portraits/men/48.jpg', 'danceMachine', 'My name is Luciano Durand and Im from Switzerland', false, '2019-01-18'),
+('https://randomuser.me/api/portraits/men/1.jpg', 'orangeswan986', 'Attending every concert possible!', true, '2003-12-30'),
+('https://randomuser.me/api/portraits/women/8.jpg', 'druerGi', 'Drummer searching for jam buddies', true, '2003-12-30');
 
 INSERT INTO events (artist, venue, city, artist_picture, price, user_id)
 VALUES
